@@ -1,0 +1,8 @@
+<view class="container">
+  <block wx:if="{{items.length > 0}}">
+    <view class="row" wx:for="{{items}}" wx:for-item="item" wx:key="title">
+      <text class="title">{{item.title}}</text>
+      <text class="content">{{item.content}}</text>
+    </view>
+  </block>
+</view>

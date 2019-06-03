@@ -1,0 +1,5 @@
+<view class="container">
+  <block wx:for="{{metadata}}" wx:key="id" wx:for-item="item">
+    <Text data-action="{{item.action}}" catchtap="onTap">{{item.title}}</Text>
+  </block>
+</view>

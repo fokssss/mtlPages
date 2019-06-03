@@ -1,0 +1,12 @@
+{
+  "component": true,
+  "usingComponents": {
+    "card": "../controls/card/card",
+    "flow": "../controls/flow/flow",
+    "header-toolbar": "../controls/detail-header-toolbar/detail-header-toolbar",
+    "detail-body": "../controls/detail-body/detail-body",
+    "footer-toolbar": "../controls/detail-footer-toolbar/detail-footer-toolbar",
+    "mdd-modal": "../../common/modal/index"
+  },
+  "disableScroll": true
+}

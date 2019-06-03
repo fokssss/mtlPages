@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "mdd-view": "../../mdd-view/mddView"
+    },
+    "navigationBarTitleText": "空白模板"
+}

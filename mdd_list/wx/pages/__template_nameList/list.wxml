@@ -1,0 +1,2 @@
+<!--index.wxml-->
+<mdd-view id="mdd-view" url="{{url}}" template="{{template}}" binduserextend="onUserExtend"></mdd-view>

@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "mdd-view": "../../mdd-view/mddView"
+    }
+}

@@ -1,0 +1,47 @@
+<view class="container">
+  <block wx:if="{{headerToolbar}}">
+    <header-toolbar viewid="{{viewid}}" metadata="{{headerToolbar}}" />
+  </block>
+  <block wx:for="{{contentItems}}" wx:key="type" wx:for-item="item">
+    <block wx:if="{{item.data}}">
+      <view class="space" />
+      <block wx:if="{{item.type == 'card'}}">
+        <card viewid="{{viewid}}" metadata="{{item.data}}" />
+      </block>
+      <block wx:elif="{{item.type == 'detail-body'}}">
+        <detail-body viewid="{{viewid}}" metadata="{{item.data}}" />
+      </block>
+      <block wx:elif="{{item.type == 'flow'}}">
+        <flow viewid="{{viewid}}" metadata="{{item.data}}" />
+      </block>
+    </block>
+  </block>
+  <block wx:if="{{footerToolbar}}">
+    <view class="space" style="height: 55px;" />
+    <footer-toolbar viewid="{{viewid}}" metadata="{{footerToolbar}}" />
+  </block>
+</view>
+<block wx:if="{{!isModalHidden}}">
+  <block wx:if="{{modalType == 'UserInfo'}}">
+    <!-- 人员信息弹出框 -->
+    <mdd-modal title="人员信息" bindhidden="hideModal" bindok="onClickModalOk" bindcancel="hideModal">
+      <block wx:if="{{modalData.length> 0}}">
+        <view class="modal-content-userinfo">
+          <view class="row" wx:for="{{modalData}}" wx:key="propname" style="{{index == 0 ? '' : 'margin-top:5px;'}}">
+            <text class="title">{{item.propname}}</text>
+            <block wx:if="{{item.msgtype == 1 || item.msgtype == 0}}">
+              <!-- 电话号码 -->
+              <text class="content phone" data-value="{{item.propvalue}}" bindtap="makePhoneCall">
+                {{item.propvalue}}
+              </text>
+            </block>
+            <block wx:else>
+              <text class="content" data-name="{{item.propname}}">{{item.propvalue}}</text>
+            </block>
+          </view>
+        </view>
+        <view class="divLine"></view>
+      </block>
+    </mdd-modal>
+  </block>
+</block>

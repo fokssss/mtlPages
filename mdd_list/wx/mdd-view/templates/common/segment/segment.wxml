@@ -1,0 +1,8 @@
+<view class="container">
+  <block wx:for="{{segments}}" wx:for-item="item" wx:key="title">
+  <view class="item {{item.selected ? 'selected' : ''}}" bindtap="onSegment" data-idx="{{index}}">
+    <text class="title">{{item.title}}</text>
+    <view class="slider" />
+  </view>
+  </block>
+</view>

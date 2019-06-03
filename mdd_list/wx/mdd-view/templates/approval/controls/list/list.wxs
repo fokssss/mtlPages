@@ -1,0 +1,46 @@
+var maxOffset = 60;
+var distance = 30;
+var originY = 0;
+var offset = 0;
+var height = 0;
+
+function touchstart(event, instance) {
+  originY = event.changedTouches[0].clientY
+  return true
+}
+function touchmove(event, instance) {
+  var y = event.changedTouches[0].clientY
+  var offsetTop = event.currentTarget.offsetTop
+  var popEvent = true
+  offset = y - originY
+  if (offsetTop > 0) {
+    if (offsetTop - offset > 0) {
+      return true
+    }
+    offset = offset - offsetTop
+  }
+  else {
+    popEvent = false
+  }
+  height = (offset > maxOffset ? maxOffset : offset)
+  height = height < 0 ? 0 : height
+  instance.selectComponent('.container').setStyle({
+    'transform': 'translate(0px, -' + (60 - height) + 'px)',
+  })
+  return popEvent
+}
+function touchend(event, instance) {
+  instance.callMethod('onRefresh', {
+    offset: height,
+    distance: distance,
+  })
+  originY = 0;
+  offset = 0;
+  height = 0;
+  return true
+}
+module.exports = {
+  touchstart: touchstart,
+  touchmove: touchmove,
+  touchend: touchend,
+}

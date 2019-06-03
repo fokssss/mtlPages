@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "segment": "../../common/segment/segment",
+    "table": "../controls/list/list",
+    "mdd-modal": "../../common/modal/index"
+  },
+  "disableScroll": true
+}

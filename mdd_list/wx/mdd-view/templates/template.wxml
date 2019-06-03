@@ -1,0 +1,6 @@
+<template name="approval-listpage">
+  <approval-listpage id="template" metadata="{{metadata}}" viewid="{{viewid}}" binduserextend="onUserExtend" />
+</template>
+<template name="approval-detailpage">
+  <approval-detailpage id="template" metadata="{{metadata}}" viewid="{{viewid}}" binduserextend="onUserExtend" />
+</template>

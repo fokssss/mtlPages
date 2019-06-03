@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="segment" >
+    <text class="segment-title">单据明细</text>
+  </view>
+  <block wx:if="{{metadata}}">
+    <card viewid="{{viewid}}" metadata="{{metadata}}" />
+  </block>
+</view>

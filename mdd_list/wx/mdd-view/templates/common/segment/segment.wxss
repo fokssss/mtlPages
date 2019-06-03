@@ -1,0 +1,44 @@
+:host {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  display:flex;
+  flex-direction:row;
+}
+
+.item {
+  color:#9E9E9E;
+  flex-grow:1;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:center;
+  padding:0 5px;
+}
+
+.item .title {
+  text-align:center;
+  font-family:"PingFangSC-Light";
+  font-size:15px;
+  line-height:22px;
+  margin-top:9px;
+  margin-bottom:7px;
+  color:#9E9E9E;
+}
+
+.item .slider {
+  height:2px;
+  width: 100%;
+  max-width: 120px;
+  align-self: center;
+}
+
+.item.selected .slider {
+  background-color:red;
+}
+
+.item.selected .title {
+  color:red;
+}

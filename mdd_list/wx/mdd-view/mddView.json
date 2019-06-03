@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "approval-listpage": "./templates/approval/listpage/listpage",
+        "approval-detailpage": "./templates/approval/detailpage/detailpage"
+    },
+    "disableScroll": true
+}

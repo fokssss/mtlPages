@@ -1,0 +1,31 @@
+<view class="container">
+  <block wx:if="{{header}}">
+    <view class=".header-place" />
+    <segment class="header" viewid="{{viewid}}" metadata="{{header}}" bindchanged="onSegmentChanged" />
+  </block>
+  <view class="table-area">
+    <block wx:for="{{tables}}" wx:for-item="item" wx:key="bindField">
+      <view class="table {{item.hidden ? 'hidden' : ''}}">
+        <table id="table-{{index}}" viewid="{{viewid}}" metadata="{{item}}" bindrefresh="onListRefresh" bindscrolltolower="onListScrollToLower" />
+      </view>
+    </block>
+  </view>
+</view>
+<block wx:if="{{!isModalHidden}}">
+  <block wx:if="{{modalType == 'cmdApprove'}}">
+    <!-- 同意 -->
+    <mdd-modal title="审批意见" bindhidden="hideModal" bindok="onClickModalOk" bindcancel="hideModal">
+      <view class="modal-content">
+        <textarea class="modal-textarea" bindinput="onInputChange" placeholder="请填写同意原因（可选项）" placeholder-class="input-holder"></textarea>
+      </view>
+    </mdd-modal>
+  </block>
+  <block wx:elif="{{modalType == 'cmdReject'}}">
+    <!-- 驳回 -->
+    <mdd-modal title="审批意见" bindhidden="hideModal" bindok="onClickModalOk" bindcancel="hideModal">
+      <view class="modal-content">
+        <textarea class="modal-textarea" bindinput="onInputChange" placeholder="请填写驳回原因（可选项）" placeholder-class="input-holder"></textarea>
+      </view>
+    </mdd-modal>
+  </block>
+</block>

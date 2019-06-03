@@ -1,0 +1,1 @@
+<mdd-view id="mdd-view" url="{{url}}" template="{{template}}"></mdd-view>

@@ -1,0 +1,4 @@
+<import src="./templates/template.wxml" />
+<block wx:if="{{metadata && template}}">
+  <template is="{{template}}" data="{{metadata: metadata,viewid: viewid}}" />
+</block>

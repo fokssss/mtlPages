@@ -1,0 +1,18 @@
+<view class="container">
+  <block wx:for="{{historylinelist}}" wx:for-index="idx" wx:for-item="step" wx:key="idx">
+    <view class='content'>
+      <view class=".line-block">
+        <view class="line {{idx == 0 ? 'hidden' : ''}}" />
+        <view class="dot" />
+        <view class="line {{idx == historylinelist.length - 1 ? 'hidden' : ''}}" />
+      </view>
+      <text class="name" data-psnid="{{step.psnid}}" bindtap='onTapUser'>{{step.handlername}}</text>
+      <view class="action">
+        <text class="note hidden">{{step.note}}</text>
+        <text class="{{step.action == '批准' ? 'agree' : (step.action == '拒绝' ? 'reject' : 'default')}}">{{step.action}}</text>
+        <text class="note">{{step.note}}</text>
+      </view>
+      <text class="date">{{step.handledate}}</text>
+    </view>
+  </block>
+</view>

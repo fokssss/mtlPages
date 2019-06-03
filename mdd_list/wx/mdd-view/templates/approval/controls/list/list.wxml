@@ -1,0 +1,30 @@
+<wxs module="refresh" src="./list.wxs"></wxs>
+<view class="container" bindtouchstart="{{refresh.touchstart}}" bindtouchmove="{{refresh.touchmove}}" bindtouchend="{{refresh.touchend}}" animation="{{animationData}}">
+  <view class="refresh" >
+    <image mode="aspectFill" src="./loading.png"></image>
+  </view>
+  <scroll-view class="scroll" scroll-y bindscrolltolower="onScrollToLower" >
+    <view wx:for="{{rowItems}}" wx:key="id" class="row" data-id="{{item.id}}" bindtap="onDetail">
+      <text class="title">{{item.title}}</text>
+      <view class="content">
+        <text class="date">{{item.date}}</text>
+        <block wx:if="{{buttons.length > 0}}">
+          <view class="btn-area">
+            <block wx:for="{{buttons}}" wx:for-item="btnItem" wx:key="action">
+              <Button class="button {{btnItem.style}}" catchtap="onTapButton" data-id="{{item.id}}" data-action="{{btnItem.action}}">
+                {{btnItem.title}}
+              </Button>
+            </block>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view wx:if="{{rowItems.length > 0}}" class=".footer">- - - - - - - - - -  {{ isNoMoreData ? "没有更多数据了" : "上拉加载更多" }}  - - - - - - - - - -</view>
+    <view wx:else class="none" >
+      <view class="none-place" />
+      <image class="none-image" src="./list_empty.png" />
+      <text class="none-text"> 暂无数据，下拉刷新 </text>
+      <view class="none-place" />
+    </view>
+  </scroll-view>
+</view>

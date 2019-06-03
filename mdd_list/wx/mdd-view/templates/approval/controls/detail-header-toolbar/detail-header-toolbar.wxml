@@ -1,0 +1,8 @@
+<view class="container">
+  <block wx:if="{{items.length > 0}}">
+    <block wx:for="{{items}}" wx:for-item="item" wx:key="title">
+      <view wx:if="{{index != 0}}" class="vline"></view>
+      <text class="text" data-action="{{item.action}}" bindtap="onTap">{{item.title}}</text>
+    </block>
+  </block>
+</view>

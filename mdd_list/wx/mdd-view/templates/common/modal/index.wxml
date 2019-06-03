@@ -1,0 +1,19 @@
+<view class="modal-background" bindtap="onTapBackground" catchtouchmove="preventTouchmove" />
+<view class="modal-dialog">
+  <text class="title">{{title}}</text>
+  <slot></slot>
+  <view wx:if="{{showButtons}}" class="modal-footer">
+    <block wx:if="{{actions.length > 0}}">
+      <block wx:for="{{actions}}" wx:key="index" wx:for-item="action" wx:for-index="idx">
+        <text class="action" style="{{action.style||''}}" data-index="{{idx}}" catchtap="handleAction">{{action.title}}</text>
+        <view wx:if="{{index != actions.length - 1}}" class="vline" />
+      </block>
+    </block>
+    <block wx:else>
+      <text class="action" wx:if="{{showCancel}}" catchtap="onClickCancel">{{cancelText}}</text>
+      <view wx:if="{{showCancel&&showOk}}" class="vline" />
+      <text class="action ok" wx:if="{{showOk}}" catchtap="onClickOk">{{okText}}</text>
+    </block>
+  </view>
+  <view wx:else style="height:20px;"></view>
+</view>
